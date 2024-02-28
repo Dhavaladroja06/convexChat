@@ -1,6 +1,6 @@
 import { Link, SplashScreen, Stack } from "expo-router";
 import { ConvexProvider, ConvexReactClient } from "convex/react"
-import { TouchableOpacity } from "react-native";
+import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
@@ -22,9 +22,9 @@ export default function RootLayoutNav() {
             headerTitle: "My Chats",
             headerRight: () => (
               <Link href={"/(modal)/create"} asChild>
-                <TouchableOpacity>
+                <Pressable android_ripple={{ color:"#ffffffa1" }}>
                   <Ionicons name="add" size={32} color={"#fff"} />
-                </TouchableOpacity>
+                </Pressable>
               </Link>
             )
           }}
@@ -36,9 +36,9 @@ export default function RootLayoutNav() {
           presentation:"fullScreenModal",
           headerLeft: () => (
             <Link href={"/"}asChild>
-              <TouchableOpacity>
+              <Pressable android_ripple={{ color:"#ffffffa1" }}>
                 <Ionicons name="close-outline" size={32} color={"#fff"} />
-              </TouchableOpacity>
+              </Pressable>
             </Link>
           )
          }}
@@ -46,7 +46,8 @@ export default function RootLayoutNav() {
         <Stack.Screen
         name="(chat)/[chatid]"
         options={{ 
-          headerTitle:""
+          headerTitle:"",
+          headerLeft : () => ("")
          }}
         />
       </Stack>

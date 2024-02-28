@@ -1,4 +1,4 @@
-import { View, Text, KeyboardAvoidingView, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, KeyboardAvoidingView, StyleSheet, TextInput, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import { useRouter } from 'expo-router';
 import { useMutation } from 'convex/react';
@@ -35,9 +35,9 @@ const Page = () => {
             <Text style={styles.label}>Icon URL</Text>
             <TextInput style={styles.textInput} value={icon} onChangeText={setIcon}></TextInput>
 
-            <TouchableOpacity style={styles.button} onPress={onCreateGroup}>
+            <Pressable style={styles.button} onPress={onCreateGroup} android_ripple={{ color:"#eea317d3" }}>
                 <Text style={styles.buttontext}>Create</Text>
-            </TouchableOpacity>
+            </Pressable>
 
         </KeyboardAvoidingView>
     );

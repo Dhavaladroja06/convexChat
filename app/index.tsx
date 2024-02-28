@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
@@ -51,13 +51,13 @@ const Page = () => {
             <ScrollView style={styles.container}>
                 {groups.map((group: Group) => (
                    <Link href={{ pathname: `/(chat)/[chatid]`, params: { chatid: group._id } }} key={group._id.toString()} asChild>
-                    <TouchableOpacity style={styles.group}>
+                    <Pressable style={styles.group}> 
                         <Image source={{ uri: group.icon_url }} style={styles.image}/>
                         <View>
                             <Text>{group.name}</Text>
                             <Text style={styles.description}>{group.description}</Text>
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                </Link>
                 ))}
             </ScrollView>
