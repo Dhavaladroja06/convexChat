@@ -12,7 +12,9 @@ export const get = query({
 export const getGroup = query({
     args: { id: v.id("groups") },
     handler: async (ctx, {id}) => {
-        return ctx.db.query("groups").filter((q) => q.eq(q.field("_id"),id))
+        return ctx.db
+        .query("groups")
+        .filter((q) => q.eq(q.field("_id"),id))
         .unique()
     }
 })

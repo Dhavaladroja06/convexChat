@@ -33,7 +33,7 @@ export default function RootLayoutNav() {
         name="(modal)/create"
         options={{ 
           headerTitle:"Start a Chat",
-          presentation:"modal",
+          presentation:"fullScreenModal",
           headerLeft: () => (
             <Link href={"/"}asChild>
               <TouchableOpacity>
@@ -41,6 +41,12 @@ export default function RootLayoutNav() {
               </TouchableOpacity>
             </Link>
           )
+         }}
+        />
+        <Stack.Screen
+        name="(chat)/[chatid]"
+        options={{ 
+          headerTitle:""
          }}
         />
       </Stack>
